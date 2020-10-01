@@ -41,6 +41,41 @@ shortcuts =
 > variable during module import (and not eg at runtime) may not see values loaded from
 > this file.
 
+## Contributing
+
+If you would like to contribute, you may need to install the following development tools:
+
+```
+# Useful for installing tools like tox and pre-commit in a separate environment
+pip install --user pipx
+
+# We run the test suite with tox
+pipx install tox
+pipx install flake8
+
+# Install pre-commit hooks to prevent commits that do not pass static checks
+pipx install pre-commit
+pre-commit install
+```
+
+Additionally, you will want to install a number of different Python versions for tox to use.
+I would recommend using [pyenv](https://github.com/pyenv/pyenv) to do this.
+After you have installed pyenv, run `tox` to see which Python versions you are missing and enable them.
+For example:
+
+```
+brew install pyenv              # If you have homebrew
+tox -l                          # Check which Python versions are currently required
+pipx inject tox tox-pyenv       # Make pyenv versions available to tox
+pyenv install 3.6.11            # If you need a Python 3.6
+pyenv install 3.7.8             # If you need a Python 3.7
+pyenv install 3.8.5             # If you need a Python 3.8
+pyenv local 3.6.11 3.7.8 3.8.5  # Make these versions locally available
+tox                             # Run the test suite via tox (same as "make test")
+```
+
+A simple Makefile is included to run development commands, just type `make` to see
+a list of available commands.
 
 ## License
 
