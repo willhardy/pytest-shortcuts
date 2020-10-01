@@ -59,10 +59,8 @@ def test_envfiles_setting(testdir):
             live: live
             slow: slow
         shortcuts =
-            --live: -m "live and not slow"
+            --live: -m "live and not slow" --envfile test.env
             --slow: -m "live and slow"
-        envfiles =
-            --live: test.env
     """)
     testdir.makefile(".env", test="SPECIAL_ENV_VALUE=123")
 
