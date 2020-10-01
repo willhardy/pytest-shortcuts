@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
 from setuptools import setup
 
 
-setup(name='pytest-shortcuts')
+setup(name="pytest-shortcuts")
