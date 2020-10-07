@@ -68,7 +68,10 @@ def expand_shortcuts(shortcuts, raw_args):
 
 
 def load_envfile(filename):
-    dotenv.load_dotenv(dotenv_path=filename, override=True)
+    path = dotenv.find_dotenv(
+        filename=filename, raise_error_if_not_found=True, usecwd=True
+    )
+    dotenv.load_dotenv(path)
 
 
 def parse_shortcut(item):
