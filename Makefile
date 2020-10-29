@@ -14,7 +14,8 @@ build:  ## Build distribution packages
 
 .PHONY: upload
 upload: build  ## Upload distribution packages to PyPI
-	twine upload dist/*
+	@echo "Run the following to upload to PyPI"
+	@echo "twine upload dist/*"
 
 .PHONY: help
 help:  ## Display this help message

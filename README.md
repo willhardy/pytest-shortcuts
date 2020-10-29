@@ -24,23 +24,6 @@ shortcuts =
 
 Now when you run your tests with eg `--live`, it will be as if you provided `-m "live and not slow"`.
 
-
-## Bonus: including dotenv files
-
-For each shortcut, you can also define a dotenv file to load with custom configuration:
-
-```no-highlight
-[pytest]
-shortcuts =
-    --live: -m "live and not slow" --envfile=.live.env
-    --slow: -m "live and slow"
-```
-
-> Note that this dotenv file loads the environment very early, but any pytest-plugins
-> will have already been imported by then. Any plugin that relies on an environment
-> variable during module import (and not eg at runtime) may not see values loaded from
-> this file.
-
 ## Contributing
 
 If you would like to contribute, you may need to install the following development tools:
